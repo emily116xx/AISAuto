@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AISAutoForms.Models.ApproverMaint>
+
+<h1>Approver List</h1>
+
+<p>
+    <a asp-action="Create">Add New Approver</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApproverName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApproverRole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApproverDept)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApproverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApproverRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApproverDept)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApproverId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApproverId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApproverId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

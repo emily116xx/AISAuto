@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AISAutoForms.props" />
+</Project>

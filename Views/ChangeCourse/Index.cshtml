@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AISAutoForms.ViewModels.ListChgCourseVM>
+@* @model AISAutoForms.ViewModels.ListChgCourseVM *@
+
+<h1>Records List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Student ID</th>
+            <th>Request Date</th>
+            <th>Progress</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ChgCourseId</td>
+                <td>@item.StudentId</td>
+                <td>@item.SubmitDate</td>
+                <td>@item.Status</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ChgCourseId" class="btn btn-primary">View Detail</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

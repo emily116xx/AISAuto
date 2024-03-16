@@ -1,0 +1,44 @@
+﻿@model AISAutoForms.Models.ApproverMaint
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ApproverMaint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ApproverId" />
+            <div class="form-group">
+                <label asp-for="ApproverName" class="control-label"></label>
+                <input asp-for="ApproverName" class="form-control" />
+                <span asp-validation-for="ApproverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApproverRole" class="control-label"></label>
+                <input asp-for="ApproverRole" class="form-control" />
+                <span asp-validation-for="ApproverRole" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApproverDept" class="control-label"></label>
+                <input asp-for="ApproverDept" class="form-control" />
+                <span asp-validation-for="ApproverDept" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,161 @@
+﻿@model AISAutoForms.ViewModels.ApproveChgCourseVM
+
+<h1>Record Details</h1>
+
+@* @if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+} *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Student ID</td>
+            <td>@Model.StudentId</td>
+        </tr>
+        <tr>
+            <td>Student Name</td>
+            <td>@Model.StudentName</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Model.StudentEmail</td>
+        </tr>
+        <tr>
+            <td>Phone No</td>
+            <td>@Model.StudentPhone</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@Model.StudentAddress</td>
+        </tr>
+        <tr>
+            <td>Programme of Study</td>
+            <td>@Model.ProgrammeOfStudy</td>
+        </tr>
+        <tr>
+            <td>Request Type</td>
+            <td>@Model.ChgCourseType</td>
+        </tr>
+        <tr>
+            <td>Signature</td>
+            <td>@Model.Signature</td>
+        </tr>
+        <tr>
+            <td>Date Requested</td>
+            <td>@Model.SubmitDate</td>
+        </tr>
+        <tr>
+            <td>Course Code</td>
+            <td>@Model.CourseCode</td>
+        </tr>
+        <tr>
+            <td>Course Name</td>
+            <td>@Model.CourseName</td>
+        </tr>
+        <tr>
+            <td>Withdraw Course Code</td>
+            <td>@Model.WitdCourseCode</td>
+        </tr>
+        <tr>
+            <td>Withdraw Course Name</td>
+            <td>@Model.WitdCourseName</td>
+        </tr>
+        <tr>
+            <td>Add Course Code</td>
+            <td>@Model.AddCourseCode</td>
+        </tr>
+        <tr>
+            <td>Add Course Name</td>
+            <td>@Model.AddCourseName</td>
+        </tr>
+        <tr>
+            <td>Approver Name</td>
+            <td>
+                <input type="text" id="ApproverName" name="ApproverName">
+                @* <button type="button" id="PreApprove">Pre-Approve</button> *@
+                <button type="button" id="approveButton" onclick="performActions()">Approve/Pre-Approve</button>
+            </td>
+        </tr>
+        @* <tr>
+            <td>Approver Date</td>
+            <td>@DateTime.Now</td>
+        </tr> *@
+        <tr>
+            <td>Approver Comments</td>
+            <td><input type="text" id="ApproverComments" name="ApproverComments"></td>
+        </tr>
+        <tr>
+            <td>Registrar Name</td>
+            <td><input type="text" id="RegistrarName" name="RegistrarName"></td>
+        </tr>
+        @* <tr>
+            <td>Process Date</td>
+            <td>@DateTime.Now</td>
+        </tr> *@
+        <tr>
+            @* <td>Returned Date</td>
+            <td>@DateTime.Now</td> *@
+        </tr>
+        <tr>
+            <td>Transcript Update</td>
+            <td><input type="text" id="TranscriptUpdate" name="TranscriptUpdate"></td>
+        </tr>
+        <tr>
+            <td>Comments</td>
+            <td><input type="text" id="Comments" name="Comments"></td>
+        </tr>
+        <tr>
+            <td>Process By</td>
+            <td><input type="text" id="ProcessBy" name="ProcessBy"></td>
+        </tr>
+        <tr>
+            <td>Is Change</td>
+            <td><input type="checkbox" id="IsChange" name="IsChange"></td>
+        </tr>
+        <tr>
+            <td>Is Withdrawal</td>
+            <td><input type="checkbox" id="IsWithdrawal" name="IsWithdrawal"></td>
+        </tr>
+        <tr>
+            <td>Is Cancelled</td>
+            <td><input type="checkbox" id="IsCancelled" name="IsCancelled"></td>
+        </tr>
+        <tr>
+            <td>Is Required</td>
+            <td><input type="checkbox" id="IsRequired" name="IsRequired"></td>
+        </tr>
+        <tr>
+            <td>Payment Amount</td>
+            <td><input type="number" id="PaymentAmt" name="PaymentAmt"></td>
+        </tr>
+        <tr>
+            <td>Refund Amount</td>
+            <td><input type="number" id="RefundAmt" name="RefundAmt"></td>
+        </tr>
+        <tr>
+            <td>Transfer Amount</td>
+            <td><input type="number" id="TransferAmt" name="TransferAmt"></td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" id="approveButton">Approve</button>
+
+@section Scripts {
+   @*  <script>
+        $(document).ready(function () {
+            $('#approveButton').click(function () {
+                // Perform approve action here
+            });
+        });
+    </script> *@
+}
