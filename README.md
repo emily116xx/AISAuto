@@ -1,1 +1,13 @@
 # AISAuto
+# AIS Course Change Management System
+
+The AIS Course Change Management System is a web application designed to streamline the process of course change requests for Auckland Institute of Studies (AIS). This system automates the manual process of handling course change requests, making it easier for administrators to manage and track requests efficiently.
+
+## Features
+
+- **Centralized Request Management**: All administrators can log into the application to view and manage course change requests from a centralized dashboard.
+- **Standardized Workflow**: The application enforces a standardized workflow for processing course change requests, ensuring consistency and efficiency in the process.
+- **Reduced Paperwork**: By digitizing the course change request process, the system eliminates the need for paper forms, reducing paperwork and improving sustainability.
+- **Automated Approval Process**: Administrators can easily review and approve course change requests within the application, reducing processing time and improving overall efficiency.
+- **Cross-Department Collaboration**: The system facilitates collaboration between different departments involved in the course change process, ensuring smooth communication and coordination.
+- **Track Request Progress**: Administrators can track the progress of course change requests in real-time, providing transparency and accountability throughout the process.
