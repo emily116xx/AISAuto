@@ -15,11 +15,6 @@ The AIS Course Change Management System is a web application designed to streaml
 ## Installation
 
 1. Clone the repository:
-
-
-## Installation
-
-1. Clone the repository:
 git clone https://github.com/emily116xx/AISAuto.git
 
 
