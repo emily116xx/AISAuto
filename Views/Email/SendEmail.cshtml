@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Send Email";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@ViewBag.Message</p>
+
+<form action="/Email/SendEmail" method="post" style="max-width: 600px; margin: 0 auto;">
+    <fieldset>
+        <legend>Email Settings</legend>
+        <p>
+            <label>SMTP Server:</label><br>
+            <input type="text" name="smtpServer" value="" style="width: 100%;" />
+            <!-- // found by estimating MX records 
+                // need to check with IT department if it can be used -->
+
+            <!-- smtp.gmail.com // for gmail test-->
+        </p>
+        <p>
+            <label>From:</label><br>
+            <input type="text" name="fromEmail" value="youremail@ess.ais.ac.nz" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Port:</label><br>
+            <input type="number" name="port" value="587" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Password:</label><br>
+            <input type="password" name="password" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Enable SSL:</label>
+            <input type="hidden" name="enableSsl" value="false" />
+            <input type="checkbox" name="enableSslChecked" value="true" checked="checked" />
+        </p>
+    </fieldset>
+
+    <fieldset id="firstEmailGroup">
+        <legend>
+            Information for Lecturer
+            <input type="checkbox" name="firstEmailToggle" value="true" checked="checked" />
+        </legend>
+        <p>
+            <label>To:</label><br>
+            <input type="text" name="toEmail1" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Subject:</label><br>
+            <input type="text" name="subject1" value="@ViewBag.Subject1" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Body:</label><br>
+            <textarea name="body1" style="width: 100%;">@ViewBag.Body1</textarea>
+        </p>
+    </fieldset>
+
+    <fieldset id="secondEmailGroup">
+        <legend>
+            Information for Admin (1)
+            <input type="checkbox" name="secondEmailToggle" value="true" />
+        </legend>
+        <p>
+            <label>To:</label><br>
+            <input type="text" name="toEmail2" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Subject:</label><br>
+            <input type="text" name="subject2" value="@ViewBag.Subject2" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Body:</label><br>
+            <textarea name="body2" style="width: 100%;">@ViewBag.Body2</textarea>
+        </p>
+    </fieldset>
+
+    <fieldset id="thirdEmailGroup">
+        <legend>
+            Information for Admin (2)
+            <input type="checkbox" name="thirdEmailToggle" value="true" />
+        </legend>
+        <p>
+            <label>To:</label><br>
+            <input type="text" name="toEmail3" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Subject:</label><br>
+            <input type="text" name="subject3" value="@ViewBag.Subject3" style="width: 100%;" />
+        </p>
+        <p>
+            <label>Body:</label><br>
+            <textarea name="body3" style="width: 100%;">@ViewBag.Body3</textarea>
+        </p>
+    </fieldset>
+
+    <button type="submit" style="display: block; width: 100%; padding: 10px; margin-top: 20px;">Send Email</button>
+</form>
+
+<script>
+    window.onload = function () {
+        toggleFieldset('firstEmailToggle', 'firstEmailGroup');
+        toggleFieldset('secondEmailToggle', 'secondEmailGroup');
+        toggleFieldset('thirdEmailToggle', 'thirdEmailGroup');
+    };
+
+    function toggleFieldset(toggleId, fieldsetId) {
+        var checkbox = document.querySelector('input[name="' + toggleId + '"]');
+        var fieldset = document.getElementById(fieldsetId);
+        var inputs = fieldset.querySelectorAll('input:not([type="checkbox"])');
+        var textareas = fieldset.getElementsByTagName('textarea');
+
+        // Initialize state
+        setFieldsetState(checkbox.checked, inputs, textareas);
+
+        // Add change event listener to toggle state
+        checkbox.addEventListener('change', function () {
+            setFieldsetState(this.checked, inputs, textareas);
+        });
+    }
+
+    function setFieldsetState(checked, inputs, textareas) {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = !checked;
+        }
+        for (var i = 0; i < textareas.length; i++) {
+            textareas[i].disabled = !checked;
+        }
+    }
+</script>

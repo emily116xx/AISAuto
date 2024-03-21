@@ -150,6 +150,11 @@
 
 <button type="button" id="approveButton">Approve</button>
 
+<p>
+    <a href="#" onclick="openSendEmailPopup('Predefined Subject 1', 'Predefined body content for first email.', 'Predefined Subject 2', 'Predefined body content for second email.', 'Predefined Subject 3', 'Predefined body content for third email.');">Send an Email</a>
+</p>
+
+
 @section Scripts {
    @*  <script>
         $(document).ready(function () {
@@ -159,3 +164,18 @@
         });
     </script> *@
 }
+
+<script>
+    function openSendEmailPopup(subject1, body1, subject2, body2, subject3, body3) {
+        subject1 = encodeURIComponent(subject1);
+        body1 = encodeURIComponent(body1);
+        subject2 = encodeURIComponent(subject2);
+        body2 = encodeURIComponent(body2);
+        subject3 = encodeURIComponent(subject3);
+        body3 = encodeURIComponent(body3);
+
+        var url = '@Url.Action("SendEmail", "Email")' +
+            `?subject1=${subject1}&body1=${body1}&subject2=${subject2}&body2=${body2}&subject3=${subject3}&body3=${body3}`;
+        window.open(url, "SendEmail", "width=800,height=600");
+    }
+</script>
